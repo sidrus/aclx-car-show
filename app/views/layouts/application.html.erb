@@ -1,14 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Aclx</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+	<title>ACLX Car Show Manager</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">		
+	<%= csrf_meta_tags %>
+
+	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag 'main/aclx', media: 'all', 'data-turbolinks-track' => true %>
+
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/holder/2.9.0/holder.min.js"></script>
 </head>
+
 <body>
+	<nav class="navbar navbar-default navbar-fixed-bottom">
+		<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header">&#9776;</button>
+		<div class="collapse navbar-toggleable-xs" id="navbar-header">
+			<%= link_to "Alamo City LX", root_path(), class: "navbar-brand" %>
+			<ul class="nav navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Features</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Pricing</a>
+				</li>
 
-<%= yield %>
+				<% if user_signed_in? %>
+				<li class="nav-item">
+					<%= link_to "Log out", destroy_user_session_path, :class => "nav-link", :method => :delete %>
+				</li>
+				<% end %>
+			</ul>
+		</div>
+	</nav>
+		
+	<div class="container">
+		<%= yield %>
+	</div>
 
+	<!-- Latest compiled and minified JavaScript -->
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => true %>
 </body>
 </html>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  entryType: MyString
+  entryDate: 2016-05-10
+  judgingClass: MyString
+
+two:
+  entryType: MyString
+  entryDate: 2016-05-10
+  judgingClass: MyString

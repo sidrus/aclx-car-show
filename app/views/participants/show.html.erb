@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<div class="card">
+	<div class="card-header">
+		<h4><%= @participant.full_name %></h4>
+	</div>
+	<img class="card-img-top" data-src="...">
+	<div class="card-block">
+		<p class="card-text">Vechicles: <%= @participant.vehicles.count %></p>
+		<p class="card-text">Address: <%= @participant.full_address %></p>
+	</div>
+</div>
+
+<div class="container row">
+	<%= render partial: "map", locals: {participant: @participant} %>
+</div>
+
+<div class="container row">
+<%= link_to "Edit #{@participant.full_name}", edit_participant_path(@participant), class: "btn btn-secondary btn-sm" %>
+<%= link_to 'Participant List', participants_path, class: "btn btn-secondary btn-sm" %>
+</div>

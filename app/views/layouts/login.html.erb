@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ACLX Car Show Manager</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">		
+	<%= csrf_meta_tags %>
+
+	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag 'login/cover', media: 'all', 'data-turbolinks-track' => true %>
+
+</head>
+<body>
+	<div class="site-wrapper">
+	  	<div class="site-wrapper-inner clearfix">
+	    	<div class="cover-container">
+	      		<div class="masthead clearfix">
+	        		<div class="inner">
+	          			<h2>ACLX Car Show Manager</h2>
+	        		</div>
+	      		</div>
+
+	      		<div class="inner cover">
+					<%= yield %>
+				</div>
+			</div>
+
+	      	<div class="mastfoot">
+	      		<small>Copyright (c) 2016 Alamo City LX Modern Mopar</small>
+	      	</div>
+	    </div>
+  	</div>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track' => true %>
+</body>
+</html>

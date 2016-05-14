@@ -9,3 +9,12 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
+Rails.application.config.assets.precompile += %w( login/cover.css )
+
+Rails.application.config.assets.precompile += %w( main/aclx.css )
+Rails.application.config.assets.precompile += %w( main/car_shows.scss )
+Rails.application.config.assets.precompile += %w( main/scaffolds.scss )
+Rails.application.config.assets.precompile += %w( main/vehicles.scss )
+
+Rails.application.config.assets.precompile += %w( tether.min.js )
+Rails.application.config.assets.precompile += %w( bootstrap.min.js )

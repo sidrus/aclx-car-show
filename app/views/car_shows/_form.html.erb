@@ -1,0 +1,25 @@
+<%= form_for(@car_show) do |f| %>
+  <% if @car_show.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@car_show.errors.count, "error") %> prohibited this car_show from being saved:</h2>
+
+      <ul>
+      <% @car_show.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :start %><br>
+    <%= f.datetime_select :start %>
+  </div>
+  <div class="field">
+    <%= f.label :end %><br>
+    <%= f.datetime_select :end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
