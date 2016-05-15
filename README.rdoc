@@ -1,5 +1,6 @@
 == README
 
-{<img src="https://travis-ci.org/sidrus/aclx.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/sidrus/aclx]{<img src="https://codeclimate.com/github/sidrus/aclx/badges/coverage.svg" />}[https://codeclimate.com/github/sidrus/aclx/coverage]
+{<img src="https://travis-ci.org/sidrus/aclx.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/sidrus/aclx]
+{<img src="https://codeclimate.com/github/sidrus/aclx/badges/coverage.svg" />}[https://codeclimate.com/github/sidrus/aclx/coverage]
 
 Coming soon...
