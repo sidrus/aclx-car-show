@@ -1,3 +1,5 @@
 == README
 
+Build Status: {<img src="https://travis-ci.org/sidrus/aclx.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/sidrus/aclx]
+
 Coming soon...
