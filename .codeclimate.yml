@@ -41,3 +41,4 @@ exclude_paths:
 - db/
 - spec/
 - vendor/
+- "app/assets/stylesheets/font-awesome.css"
