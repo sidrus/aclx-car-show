@@ -42,4 +42,5 @@ exclude_paths:
 - spec/
 - vendor/
 - "app/assets/stylesheets/font-awesome.css"
-- "app/assets/javascripts/bootstrap.min.js"
+- "app/assets/javascripts/*.min.js"
+- "app/assets/stylesheets/*.min.css"
