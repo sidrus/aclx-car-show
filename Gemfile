@@ -52,6 +52,7 @@ group :development, :test do
   gem 'rake'
   gem 'rspec-rails'
   gem 'libnotify'
+  gem 'factory_girl_rails'
 end
 
 group :test do
