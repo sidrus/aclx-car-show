@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   private
   	def determine_layout
-  		current_user ? "application" : "login"
+  		user_signed_in? ? "application" : "login"
   	end
 
 end

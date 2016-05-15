@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160510210648) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "car_shows", force: :cascade do |t|
     t.datetime "start"
     t.datetime "end"
@@ -56,18 +59,6 @@ ActiveRecord::Schema.define(version: 20160510210648) do
     t.datetime "updated_at",     null: false
   end
 
-  create_table "people", force: :cascade do |t|
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "street"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zipcode"
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -85,8 +76,8 @@ ActiveRecord::Schema.define(version: 20160510210648) do
     t.string   "uid"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "vehicles", force: :cascade do |t|
     t.integer  "year"

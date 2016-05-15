@@ -13,11 +13,10 @@
  *= require bootstrap-social
  *= require bootstrap.min
  *= require font-awesome
-
  *= require_self
  */
 
- .top-buffer {
+  .top-buffer {
  	margin-top: 10px;
  }
 

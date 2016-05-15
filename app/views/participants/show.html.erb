@@ -12,7 +12,7 @@
 </div>
 
 <div class="container row">
-	<%= render partial: "map", locals: {participant: @participant} %>
+	<%= render partial: "shared/map", locals: {location: @participant.full_address} %>
 </div>
 
 <div class="container row">

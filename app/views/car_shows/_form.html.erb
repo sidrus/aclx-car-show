@@ -1,7 +1,7 @@
-<%= form_for(@car_show) do |f| %>
+<%= simple_form_for(@car_show) do |f| %>
   <% if @car_show.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@car_show.errors.count, "error") %> prohibited this car_show from being saved:</h2>
+      <h2><%= pluralize(@car_show.errors.count, "error") %> prohibited this car show from being saved:</h2>
 
       <ul>
       <% @car_show.errors.full_messages.each do |message| %>
@@ -11,15 +11,23 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :start %><br>
-    <%= f.datetime_select :start %>
-  </div>
-  <div class="field">
-    <%= f.label :end %><br>
-    <%= f.datetime_select :end %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="container">
+    <%= f.input :name, icon: "user" %>
+    <%= f.input :street %>
+    <%= f.input :city %>
+    <%= f.input :state %>
+    <%= f.input :zipcode %>
+    <%= f.input :start, wrapper_html: { class: 'font-color-mopar-blue'}, as: :datetime_picker %>
+    <%= f.input :end, as: :datetime_picker %>
+
+    <div class="col-xs-12">
+      <%= f.button :submit, class: 'btn btn-primary' %>
+
+      <% if !@car_show.new_record? then %>
+        <%= link_to 'Back', @car_show, class: 'btn btn-secondary' %>
+      <% else %>
+        <%= link_to 'Return to List', car_shows_path, class: 'btn btn-secondary' %>
+      <% end %>
+    </div>
   </div>
 <% end %>

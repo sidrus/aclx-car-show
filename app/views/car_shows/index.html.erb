@@ -2,23 +2,21 @@
 
 <h1>Listing Car Shows</h1>
 
-<table>
+<table class="table table-striped table-bordered">
   <thead>
     <tr>
+      <th>Name</th>
       <th>Start</th>
       <th>End</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @car_shows.each do |car_show| %>
       <tr>
+        <td><%= link_to car_show.name, car_show %></td>
         <td><%= car_show.start %></td>
-        <td><%= car_show.end %></td>
-        <td><%= link_to 'Show', car_show %></td>
-        <td><%= link_to 'Edit', edit_car_show_path(car_show) %></td>
-        <td><%= link_to 'Destroy', car_show, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= car_show.end %></td>        
       </tr>
     <% end %>
   </tbody>

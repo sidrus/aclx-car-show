@@ -1,14 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Start:</strong>
-  <%= @car_show.start %>
-</p>
+<div class="card">
+  <div class="card-header">
+  	<h4><%= @car_show.name %></h4>
+  </div>
+  <div class="card-block">    
+    <p class="card-text">
+    	<strong>Start:</strong> <%= @car_show.start %> <br />
+    	<strong>End:</strong> <%= @car_show.end %>
+    </p>
+    <p class="card-text">
+    	<div class="col-xs-4">
+    		<strong>Entries:</strong> <%= @car_show.entries.count %>
+    	</div>
+    	<div class="col-xs-8">
+    		<%= link_to "New Entry", new_entry_path(car_show: @car_show.id), class: 'btn btn-sm btn-secondary' %>
+    	</div>
+    </p>
 
-<p>
-  <strong>End:</strong>
-  <%= @car_show.end %>
-</p>
+    <div>
+	    <%= link_to 'Return to List', car_shows_path, class: 'btn btn-sm btn-secondary' %>
+		<%= link_to 'Edit', edit_car_show_path(@car_show), class: 'btn btn-sm btn-secondary' %>
+		<%= link_to 'Destroy', @car_show, class: 'btn btn-sm btn-secondary', method: :delete, data: { confirm: 'Are you sure?' } %>
+	</div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_car_show_path(@car_show) %> |
-<%= link_to 'Back', car_shows_path %>
+<div class="card">
+  <div class="card-header">
+  	<h4 class="card-title">Location</h4>
+  	<small><strong><%= @car_show.full_address %></strong></small>
+  </div>
+  <div class="card-block" style="height: 240px">    
+    <%= render partial: "shared/map", locals: { location: @car_show.full_address } %>
+  </div>
+</div>

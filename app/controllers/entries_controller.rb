@@ -15,6 +15,7 @@ class EntriesController < ApplicationController
   # GET /entries/new
   def new
     @entry = Entry.new
+    @show = CarShow.find(params[:car_show])
   end
 
   # GET /entries/1/edit
@@ -25,6 +26,9 @@ class EntriesController < ApplicationController
   # POST /entries.json
   def create
     @entry = Entry.new(entry_params)
+    @show = CarShow.find(params[:entry][:car_show_id])
+
+    @entry.car_show = @show
 
     respond_to do |format|
       if @entry.save
@@ -69,6 +73,6 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.fetch(:entry, {})
+      params.require(:entry).permit(:car_show)
     end
 end

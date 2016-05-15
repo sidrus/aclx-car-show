@@ -12,7 +12,7 @@ function initMap() {
 }
 
 function geocodeAddress(geocoder, resultsMap) {
-  var address = '<%=j "#{@participant.full_address}" %>';
+  var address = '<%=j "#{location}" %>';
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === google.maps.GeocoderStatus.OK) {
       resultsMap.setCenter(results[0].geometry.location);
