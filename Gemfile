@@ -23,14 +23,18 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# User account management and authentication
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+
+# Form and Bootstrap integration
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem 'simple_form'
 gem 'momentjs-rails', '~>2.9', :github => "derekprior/momentjs-rails"
 
+# Environment variable storage for sensitive data
 gem 'figaro'
 
 # Use ActiveModel has_secure_password
@@ -47,6 +51,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rake'
   gem 'rspec-rails'
+  gem 'libnotify'
 end
 
 group :development do
@@ -56,5 +61,9 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
+  # Guard intelligently runs specs during development
+  gem 'guard-rspec', require: false
+
+  # Generates model relationship diagrams
   gem 'rails-erd'
 end
