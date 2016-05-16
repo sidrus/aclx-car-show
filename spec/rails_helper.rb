@@ -33,3 +33,17 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   #config.filter_rails_from_backtrace!
 end
+
+def configure_oauth_for_test
+	Capybara.default_host = 'localhost'
+		OmniAuth.config.test_mode = true
+		Rails.application.env_config["devise.mapping"] = Devise.mappings[:user]
+		Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+			:provider => 'facebook',
+			:uid => '12345',
+			:info => {
+				:nickname => 'test_user',
+				:email => 'test@example.org'
+			}
+		})
+end

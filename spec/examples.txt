@@ -1,5 +1,7 @@
-example_id                          | status | run_time        |
------------------------------------ | ------ | --------------- |
-./spec/features/oauth_spec.rb[1:1]  | passed | 0.37931 seconds |
-./spec/models/car_show_spec.rb[1:1] | passed | 0.3334 seconds  |
-./spec/models/car_show_spec.rb[1:2] | passed | 0.6848 seconds  |
+example_id                             | status | run_time        |
+-------------------------------------- | ------ | --------------- |
+./spec/features/car_shows_spec.rb[1:1] | passed | 0.04941 seconds |
+./spec/features/car_shows_spec.rb[1:2] | passed | 0.47615 seconds |
+./spec/features/oauth_spec.rb[1:1]     | passed | 0.36522 seconds |
+./spec/models/car_show_spec.rb[1:1]    | passed | 0.34346 seconds |
+./spec/models/car_show_spec.rb[1:2]    | passed | 0.71538 seconds |
