@@ -1,9 +1,10 @@
 example_id                                | status | run_time        |
 ----------------------------------------- | ------ | --------------- |
 ./spec/controllers/car_shows_spec.rb[1:1] | passed | 0.44665 seconds |
-./spec/features/car_shows_spec.rb[1:1]    | passed | 0.01621 seconds |
-./spec/features/car_shows_spec.rb[1:2]    | passed | 0.12005 seconds |
-./spec/features/car_shows_spec.rb[1:3]    | passed | 0.07305 seconds |
+./spec/features/car_shows_spec.rb[1:1]    | passed | 0.03604 seconds |
+./spec/features/car_shows_spec.rb[1:2]    | passed | 0.0707 seconds  |
+./spec/features/car_shows_spec.rb[1:3]    | passed | 0.7673 seconds  |
+./spec/features/car_shows_spec.rb[1:4]    | passed | 0.05119 seconds |
 ./spec/features/oauth_spec.rb[1:1]        | passed | 0.71662 seconds |
 ./spec/models/car_show_spec.rb[1:1]       | passed | 0.34784 seconds |
 ./spec/models/car_show_spec.rb[1:2]       | passed | 0.62691 seconds |

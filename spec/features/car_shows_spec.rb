@@ -1,6 +1,8 @@
 require 'rails_helper'
 
-RSpec.feature "OAuth testing" do	
+RSpec.feature "OAuth testing" do
+	given(:new_show_link) { find_link('New Car Show') }
+	
 
 	scenario 'should redirect to login for anonymous user' do
 		visit car_shows_url
@@ -43,5 +45,23 @@ RSpec.feature "OAuth testing" do
 		click_button :submit
 		expect(page).to have_content('Car show was successfully updated.')
 		expect(page).to have_content("#{@show.name} (edited)")
+	end
+	
+	scenario 'should allow a user to create a new show from the index page' do
+		configure_oauth_for_test
+		visit user_facebook_omniauth_authorize_url
+
+		# make sure we start from the car show index
+		visit car_shows_url
+		expect(page).to have_text("Listing Car Shows")
+
+		# ensure the links have the correct css styling		
+		expect(new_show_link[:class]).to match(/btn/)
+		expect(new_show_link[:class]).to match(/btn-secondary/)
+		expect(new_show_link[:class]).to match(/btn-sm/)
+
+		# make sure we got the right page
+		click_link('New Car Show')
+		expect(page).to have_content("New Car Show")
 	end
 end
