@@ -54,6 +54,7 @@ group :development, :test do
   gem 'libnotify'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'faker'
 end
 
 group :test do

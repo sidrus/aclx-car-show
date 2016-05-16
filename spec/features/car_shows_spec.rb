@@ -29,4 +29,19 @@ RSpec.feature "OAuth testing" do
 		click_button('submit')
 		expect(page).to have_content('Car show was successfully created.')
 	end
+
+	scenario 'should allow a show to be updated' do
+		configure_oauth_for_test
+		visit user_facebook_omniauth_authorize_url
+
+		# create a show in the database
+		@show = create(:car_show)
+
+		visit edit_car_show_url(@show)
+		fill_in('car_show_name', with: "#{@show.name} (edited)")
+
+		click_button :submit
+		expect(page).to have_content('Car show was successfully updated.')
+		expect(page).to have_content("#{@show.name} (edited)")
+	end
 end
