@@ -53,6 +53,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'libnotify'
   gem 'factory_girl_rails'
+  gem 'capybara'
 end
 
 group :test do

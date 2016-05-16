@@ -1,0 +1,5 @@
+example_id                          | status | run_time        |
+----------------------------------- | ------ | --------------- |
+./spec/features/oauth_spec.rb[1:1]  | passed | 0.37931 seconds |
+./spec/models/car_show_spec.rb[1:1] | passed | 0.3334 seconds  |
+./spec/models/car_show_spec.rb[1:2] | passed | 0.6848 seconds  |
