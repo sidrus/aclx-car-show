@@ -1,11 +1,19 @@
 example_id                                | status | run_time        |
 ----------------------------------------- | ------ | --------------- |
 ./spec/controllers/car_shows_spec.rb[1:1] | passed | 0.44665 seconds |
-./spec/features/car_shows_spec.rb[1:1]    | passed | 0.7099 seconds  |
-./spec/features/car_shows_spec.rb[1:2]    | passed | 0.07069 seconds |
-./spec/features/car_shows_spec.rb[1:3]    | passed | 0.14889 seconds |
-./spec/features/car_shows_spec.rb[1:4]    | passed | 0.15582 seconds |
-./spec/features/car_shows_spec.rb[1:5]    | passed | 0.1085 seconds  |
+./spec/features/car_shows_spec.rb[1:1]    | passed | 0.64984 seconds |
+./spec/features/car_shows_spec.rb[1:2]    | passed | 0.10199 seconds |
+./spec/features/car_shows_spec.rb[1:3]    | passed | 0.08821 seconds |
+./spec/features/car_shows_spec.rb[1:4]    | passed | 0.06132 seconds |
+./spec/features/car_shows_spec.rb[1:5]    | passed | 0.08024 seconds |
+./spec/features/car_shows_spec.rb[1:6]    | passed | 0.15972 seconds |
+./spec/features/car_shows_spec.rb[1:7]    | passed | 0.1173 seconds  |
+./spec/features/car_shows_spec.rb[1:8]    | passed | 0.06535 seconds |
+./spec/features/car_shows_spec.rb[1:9]    | passed | 0.1107 seconds  |
+./spec/features/car_shows_spec.rb[1:10]   | passed | 0.06603 seconds |
+./spec/features/car_shows_spec.rb[1:11]   | passed | 0.0956 seconds  |
+./spec/features/car_shows_spec.rb[1:12]   | passed | 0.07298 seconds |
+./spec/features/car_shows_spec.rb[1:13]   | passed | 0.0666 seconds  |
 ./spec/features/login_spec.rb[1:1]        | passed | 0.01366 seconds |
 ./spec/features/login_spec.rb[1:2]        | passed | 0.01201 seconds |
 ./spec/features/login_spec.rb[1:3]        | passed | 0.01331 seconds |

@@ -65,7 +65,7 @@ RSpec.feature "Car Show" do
 		expect(page).to have_content("New Car Show")
 	end
 
-	scenario 'should not allow the creation of invalid car shows' do
+	scenario 'should not allow the creation of car shows without a name' do
 		configure_oauth_for_test
 		visit user_facebook_omniauth_authorize_url
 		visit new_car_show_url
@@ -74,7 +74,53 @@ RSpec.feature "Car Show" do
 		expect(page).to have_content("New Car Show")
 
 		# build a car show
-		@show = CarShow.new
+		@show = build(:car_show)
+
+		fill_in('car_show_name', with: nil)
+		fill_in('car_show_street', with: @show.street)
+		fill_in('car_show_city', with: @show.city)
+		fill_in('car_show_state', with: @show.state)
+		fill_in('car_show_zipcode', with: @show.zipcode)
+		fill_in('car_show_start', with: @show.start)
+		fill_in('car_show_end', with: @show.end)
+
+		click_button('submit')
+		expect(page).to have_content("prohibited this car show from being saved")
+	end
+
+	scenario 'should not allow the creation of car shows without a start date' do
+		configure_oauth_for_test
+		visit user_facebook_omniauth_authorize_url
+		visit new_car_show_url
+
+		# make sure we got the right page
+		expect(page).to have_content("New Car Show")
+
+		# build a car show
+		@show = build(:car_show)
+
+		fill_in('car_show_name', with: @show.name)
+		fill_in('car_show_street', with: @show.street)
+		fill_in('car_show_city', with: @show.city)
+		fill_in('car_show_state', with: @show.state)
+		fill_in('car_show_zipcode', with: @show.zipcode)
+		fill_in('car_show_start', with: nil)
+		fill_in('car_show_end', with: @show.end)
+
+		click_button('submit')
+		expect(page).to have_content("prohibited this car show from being saved")
+	end
+
+	scenario 'should not allow the creation of car shows without a name' do
+		configure_oauth_for_test
+		visit user_facebook_omniauth_authorize_url
+		visit new_car_show_url
+
+		# make sure we got the right page
+		expect(page).to have_content("New Car Show")
+
+		# build a car show
+		@show = build(:car_show)
 
 		fill_in('car_show_name', with: @show.name)
 		fill_in('car_show_street', with: @show.street)
@@ -82,7 +128,145 @@ RSpec.feature "Car Show" do
 		fill_in('car_show_state', with: @show.state)
 		fill_in('car_show_zipcode', with: @show.zipcode)
 		fill_in('car_show_start', with: @show.start)
+		fill_in('car_show_end', with: nil)
+
+		click_button('submit')
+		expect(page).to have_content("prohibited this car show from being saved")
+	end
+
+	scenario 'should not allow the creation of car shows without a name' do
+		configure_oauth_for_test
+		visit user_facebook_omniauth_authorize_url
+		visit new_car_show_url
+
+		# make sure we got the right page
+		expect(page).to have_content("New Car Show")
+
+		# build a car show
+		@show = build(:car_show)
+
+		fill_in('car_show_name', with: @show.name)
+		fill_in('car_show_street', with: @show.street)
+		fill_in('car_show_city', with: @show.city)
+		fill_in('car_show_state', with: @show.state)
+		fill_in('car_show_zipcode', with: @show.zipcode)
+		fill_in('car_show_start', with: @show.end)
+		fill_in('car_show_end', with: @show.start)
+
+		click_button('submit')
+		expect(page).to have_content("prohibited this car show from being saved")
+	end
+
+	scenario 'should not allow the creation of car shows with invalid start date' do
+		configure_oauth_for_test
+		visit user_facebook_omniauth_authorize_url
+		visit new_car_show_url
+
+		# make sure we got the right page
+		expect(page).to have_content("New Car Show")
+
+		# build a car show
+		@show = build(:car_show)
+
+		fill_in('car_show_name', with: @show.name)
+		fill_in('car_show_street', with: @show.street)
+		fill_in('car_show_city', with: @show.city)
+		fill_in('car_show_state', with: @show.state)
+		fill_in('car_show_zipcode', with: @show.zipcode)
+		fill_in('car_show_start', with: "1234567890")
 		fill_in('car_show_end', with: @show.end)
+
+		click_button('submit')
+		expect(page).to have_content("prohibited this car show from being saved")
+	end
+
+	scenario 'should not allow the creation of car shows with invalid start date' do
+		configure_oauth_for_test
+		visit user_facebook_omniauth_authorize_url
+		visit new_car_show_url
+
+		# make sure we got the right page
+		expect(page).to have_content("New Car Show")
+
+		# build a car show
+		@show = build(:car_show)
+
+		fill_in('car_show_name', with: @show.name)
+		fill_in('car_show_street', with: @show.street)
+		fill_in('car_show_city', with: @show.city)
+		fill_in('car_show_state', with: @show.state)
+		fill_in('car_show_zipcode', with: @show.zipcode)
+		fill_in('car_show_start', with: "This is an invalid start date")
+		fill_in('car_show_end', with: @show.end)
+
+		click_button('submit')
+		expect(page).to have_content("prohibited this car show from being saved")
+	end
+
+	scenario 'should not allow the creation of car shows with invalid start date' do
+		configure_oauth_for_test
+		visit user_facebook_omniauth_authorize_url
+		visit new_car_show_url
+
+		# make sure we got the right page
+		expect(page).to have_content("New Car Show")
+
+		# build a car show
+		@show = build(:car_show)
+
+		fill_in('car_show_name', with: @show.name)
+		fill_in('car_show_street', with: @show.street)
+		fill_in('car_show_city', with: @show.city)
+		fill_in('car_show_state', with: @show.state)
+		fill_in('car_show_zipcode', with: @show.zipcode)
+		fill_in('car_show_start', with: "1234567890")
+		fill_in('car_show_end', with: @show.end)
+
+		click_button('submit')
+		expect(page).to have_content("prohibited this car show from being saved")
+	end
+
+	scenario 'should not allow the creation of car shows with invalid start date' do
+		configure_oauth_for_test
+		visit user_facebook_omniauth_authorize_url
+		visit new_car_show_url
+
+		# make sure we got the right page
+		expect(page).to have_content("New Car Show")
+
+		# build a car show
+		@show = build(:car_show)
+
+		fill_in('car_show_name', with: @show.name)
+		fill_in('car_show_street', with: @show.street)
+		fill_in('car_show_city', with: @show.city)
+		fill_in('car_show_state', with: @show.state)
+		fill_in('car_show_zipcode', with: @show.zipcode)
+		fill_in('car_show_start', with: @show.start)
+		fill_in('car_show_end', with: "This is an invalid end date")
+
+		click_button('submit')
+		expect(page).to have_content("prohibited this car show from being saved")
+	end
+
+	scenario 'should not allow the creation of car shows with invalid start date' do
+		configure_oauth_for_test
+		visit user_facebook_omniauth_authorize_url
+		visit new_car_show_url
+
+		# make sure we got the right page
+		expect(page).to have_content("New Car Show")
+
+		# build a car show
+		@show = build(:car_show)
+
+		fill_in('car_show_name', with: @show.name)
+		fill_in('car_show_street', with: @show.street)
+		fill_in('car_show_city', with: @show.city)
+		fill_in('car_show_state', with: @show.state)
+		fill_in('car_show_zipcode', with: @show.zipcode)
+		fill_in('car_show_start', with: @show.start)
+		fill_in('car_show_end', with: "1234567890")
 
 		click_button('submit')
 		expect(page).to have_content("prohibited this car show from being saved")
