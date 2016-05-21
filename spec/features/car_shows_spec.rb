@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "OAuth testing" do
+RSpec.feature "Car Show" do
 	given(:new_show_link) { find_link('New Car Show') }
 	
 

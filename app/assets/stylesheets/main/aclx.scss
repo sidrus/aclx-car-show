@@ -19,6 +19,8 @@
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   color: #a0e03a;
+  background-color: transparent;
+  text-decoration: none;
 }
 .navbar-default .navbar-nav > li > .dropdown-menu {
   background-color: #0066CC;
