@@ -1,27 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Car Shows</h1>
-
-<table class="table table-striped table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Start</th>
-      <th>End</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @car_shows.each do |car_show| %>
-      <tr>
-        <td><%= link_to car_show.name, car_show %></td>
-        <td><%= car_show.start %></td>
-        <td><%= car_show.end %></td>        
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
 <%= link_to 'New Car Show', new_car_show_path, class: 'btn btn-secondary btn-sm' %>
+
+<div class="card">
+  <div class="card-header">
+    <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+    <h4>Car Shows</h4>
+  </div>
+  <div class="card-block">
+    <% @car_shows.each do |car_show| %>
+      <% if car_show.valid? %>
+      <div class="row">
+        <div class="col-xs-12">        
+          <h5><%= link_to car_show.name, car_show %></h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <%= car_show.start.to_s(:local_ordinal) %>
+        </div>
+        <div class="col-xs-6">
+          <%= car_show.end.to_s(:local_ordinal) %>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

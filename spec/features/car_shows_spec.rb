@@ -53,7 +53,7 @@ RSpec.feature "Car Show" do
 
 		# make sure we start from the car show index
 		visit car_shows_url
-		expect(page).to have_text("Listing Car Shows")
+		expect(page).to have_text("Car Shows")
 
 		# ensure the links have the correct css styling		
 		expect(new_show_link[:class]).to match(/btn/)
@@ -63,5 +63,28 @@ RSpec.feature "Car Show" do
 		# make sure we got the right page
 		click_link('New Car Show')
 		expect(page).to have_content("New Car Show")
+	end
+
+	scenario 'should not allow the creation of invalid car shows' do
+		configure_oauth_for_test
+		visit user_facebook_omniauth_authorize_url
+		visit new_car_show_url
+
+		# make sure we got the right page
+		expect(page).to have_content("New Car Show")
+
+		# build a car show
+		@show = CarShow.new
+
+		fill_in('car_show_name', with: @show.name)
+		fill_in('car_show_street', with: @show.street)
+		fill_in('car_show_city', with: @show.city)
+		fill_in('car_show_state', with: @show.state)
+		fill_in('car_show_zipcode', with: @show.zipcode)
+		fill_in('car_show_start', with: @show.start)
+		fill_in('car_show_end', with: @show.end)
+
+		click_button('submit')
+		expect(page).to have_content("prohibited this car show from being saved")
 	end
 end

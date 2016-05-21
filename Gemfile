@@ -30,6 +30,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 
 # Form and Bootstrap integration
+gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
 gem 'simple_form'
 gem 'momentjs-rails', '~>2.9', :github => "derekprior/momentjs-rails"

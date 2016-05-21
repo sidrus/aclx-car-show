@@ -6,8 +6,8 @@
   </div>
   <div class="card-block">    
     <p class="card-text">
-    	<strong>Start:</strong> <%= @car_show.start %> <br />
-    	<strong>End:</strong> <%= @car_show.end %>
+    	<strong>Start:</strong> <%= @car_show.start.to_s(:long_ordinal) %> <br />
+    	<strong>End:</strong> <%= @car_show.end.to_s(:long_ordinal) %>
     </p>
     <p class="card-text">
     	<div class="col-xs-4">
