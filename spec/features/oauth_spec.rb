@@ -15,6 +15,6 @@ RSpec.feature "OAuth testing" do
 
 		# Ensure we're now seeing the Car Show index
 		visit root_url
-		expect(page).to have_content("Listing Car Shows")
+		expect(page).to have_content("Car Shows")
 	end
 end
